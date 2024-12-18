@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Cryenx AI Assitant",
-  description: "Developed by Talhah & Powered by Gemini",
+  description: "Built with ❤️ by Cryenx AI",
 };
 
 export default function RootLayout({
