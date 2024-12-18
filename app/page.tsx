@@ -270,7 +270,7 @@ export default function Home() {
           <h2 className="relative z-20 xs:text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-center text-black dark:text-white tracking-tight">
             <div className="relative mx-auto xs:text-xl sm:text-3xl md:text-3xl lg:text-4xl text-center text-gray-300 inline-block w-max">
               How can
-              <span className="font-sans ml-2 mr-2 xs:text-2xl sm:text-4xl md:text-4xl lg:text-5xl bg-gradient-to-r from-blue-600 via-blue-400 to-blue-800 bg-clip-text text-transparent">
+              <span className="font-sans ml-2 mr-2 xs:text-2xl sm:text-4xl md:text-4xl lg:text-5xl bg-gradient-to-r from-purple-600 via-purple-400 to-purple-800 bg-clip-text text-transparent">
                 CRYENX AI
               </span>
               assist you today?
