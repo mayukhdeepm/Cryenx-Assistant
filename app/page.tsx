@@ -265,115 +265,119 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-cover bg-center">
-      <main className="flex w-full h-full min-w-[320px] min-h-[480px] flex-col bg-cover bg-center">
-        <div className="z-20 w-full max-w-5xl min-h-[20vh] mx-auto px-4 py-10 mt-[10px] h-full">
-          <h2 className="relative z-20 xs:text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-center text-black dark:text-white tracking-tight">
-            <div className="relative mx-auto xs:text-xl sm:text-3xl md:text-3xl lg:text-4xl text-center text-gray-300 inline-block w-max">
-              How can
-              <span className="font-sans ml-2 mr-2 xs:text-2xl sm:text-4xl md:text-4xl lg:text-5xl bg-gradient-to-r from-purple-600 via-purple-400 to-purple-800 bg-clip-text text-transparent">
-                CRYENX AI
-              </span>
-              assist you today?
-            </div>
-          </h2>
-          <div className="flex w-full h-full items-top">
-            {/* Left Component with Buttons */}
-            <div className="w-1/4 pr-4 flex justify-center mt-6">
-              <div className="space-y-4 w-full max-w-[250px]">
-                {[
-                  {
-                    text: "Travel Planner",
-                    icon: "./plane.png",
-                    role: "travel"
-                  },
-                  {
-                    text: "Doctor Appointment",
-                    icon: "./doctor.png",
-                    role: "doctor"
-                  },
-                  {
-                    text: "Real Estate Agent",
-                    icon: "./rs.png",
-                    role: "realEstate"
-                  },
-                ].map((button, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleRoleChange(button.role)}
-                    className={`
-                      w-full flex items-center p-3 rounded-lg transition-colors
-                      ${
-                        selectedButton === button.role
-                          ? "bg-purple-600/20 border-2 border-purple-500"
-                          : "bg-white/10 hover:bg-white/20"
-                      }
-                    `}
-                  >
-                    <img
-                      src={button.icon}
-                      alt={button.text}
-                      className="w-10 h-10 mr-3"
-                    />
-                    <span className="text-gray-300">{button.text}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
+    <main className="flex w-full h-full min-w-[320px] flex-col bg-cover bg-center">
+      <div className="z-20 w-full max-w-5xl min-h-[20vh] mx-auto px-2 sm:px-4 py-4 sm:py-10 mt-[10px] h-full">
+        <h2 className="relative z-20 text-lg sm:text-2xl font-bold text-center text-black dark:text-white tracking-tight">
+          <div className="relative mx-auto text-xl sm:text-3xl text-center text-gray-300 inline-block w-max">
+            How can
+            <span className="font-sans ml-1 sm:ml-2 mr-1 sm:mr-2 text-2xl sm:text-4xl bg-gradient-to-r from-purple-600 via-purple-400 to-purple-800 bg-clip-text text-transparent">
+              CRYENX AI
+            </span>
+            assist you today?
+          </div>
+        </h2>
 
-            {/* Existing Component (Right-aligned) */}
-            <div className="w-3/4 pl-4">
-              <div className="bg-white/5 backdrop-blur-lg shadow-lg rounded-lg min-h-[20vh] max-w-full min-w-full w-full mt-6 p-4 xs:text-sm sm:text-sm md:text-sm lg:text-sm relative">
-                <div className="space-y-4 max-h-[50vh] overflow-y-auto p-2" ref={messagesEndRef}>
-                  {messages.length > 0 ? (
-                    messages.map((message) => (
-                      <div key={message.id}>{renderMessage(message)}</div>
-                    ))
-                  ) : (
-                    <div className="text-center h-[12px] xs:text-xs sm:text-xs md:text-sm lg:text-sm text-gray-500">
-                      No messages yet. Start a conversation!
-                    </div>
-                  )}
-                </div>
-                {toastVisible && (
-                  <Toast message="Scroll down to see more messages" visible={toastVisible} onClose={() => setToastVisible(false)} />
-                )}
-                {error && (
-                  <div className="bg-red-500 text-white text-center mt-4 p-2 rounded">
-                    {error}
+        {/* Responsive Layout Container */}
+        <div className="flex flex-col lg:flex-row w-full h-full items-top gap-4">
+          {/* Role Selection Buttons - Full width on mobile, left side on desktop */}
+          <div className="w-full lg:w-1/4 lg:pr-4 flex justify-center mt-4 lg:mt-6">
+            <div className="space-y-2 sm:space-y-4 w-full max-w-[250px]">
+              {[
+                {
+                  text: "Travel Planner",
+                  icon: "./plane.png",
+                  role: "travel"
+                },
+                {
+                  text: "Doctor Appointment",
+                  icon: "./doctor.png",
+                  role: "doctor"
+                },
+                {
+                  text: "Real Estate Agent",
+                  icon: "./rs.png",
+                  role: "realEstate"
+                },
+              ].map((button, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleRoleChange(button.role)}
+                  className={`
+                    w-full flex items-center p-2 sm:p-3 rounded-lg transition-colors text-sm sm:text-base
+                    ${
+                      selectedButton === button.role
+                        ? "bg-purple-600/20 border-2 border-purple-500"
+                        : "bg-white/10 hover:bg-white/20"
+                    }
+                  `}
+                >
+                  <img
+                    src={button.icon}
+                    alt={button.text}
+                    className="w-8 h-8 sm:w-10 sm:h-10 mr-2 sm:mr-3"
+                  />
+                  <span className="text-gray-300">{button.text}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Chat Interface - Full width on mobile, right side on desktop */}
+          <div className="w-full lg:w-3/4 lg:pl-4">
+            <div className="bg-white/5 backdrop-blur-lg shadow-lg rounded-lg min-h-[20vh] w-full mt-2 lg:mt-6 p-2 sm:p-4 text-sm relative">
+              <div className="space-y-4 max-h-[40vh] sm:max-h-[50vh] overflow-y-auto p-2" ref={messagesEndRef}>
+                {messages.length > 0 ? (
+                  messages.map((message) => (
+                    <div key={message.id}>{renderMessage(message)}</div>
+                  ))
+                ) : (
+                  <div className="text-center h-[12px] text-xs sm:text-sm text-gray-500">
+                    No messages yet. Start a conversation!
                   </div>
                 )}
-                <div className="border-t border-gray-700 mt-4 pt-4">
-                  <PlaceholdersAndVanishInput
-                    placeholders={placeholders}
-                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                      setInputValue(e.target.value)
-                    }
-                    onSubmit={onSubmit}
-                    onFileUpload={handleFileUpload}
-                    onStopGeneration={stopGeneration}
-                    isGenerating={isGenerating}
-                    isLoading={isLoading}
-                    loadingText="Generating..."
-                    value={inputValue}
+              </div>
+
+              {toastVisible && (
+                <Toast message="Scroll down to see more messages" visible={toastVisible} onClose={() => setToastVisible(false)} />
+              )}
+
+              {error && (
+                <div className="bg-red-500 text-white text-center mt-4 p-2 rounded text-sm">
+                  {error}
+                </div>
+              )}
+
+              <div className="border-t border-gray-700 mt-4 pt-4">
+                <PlaceholdersAndVanishInput
+                  placeholders={placeholders}
+                  onChange={handleChange}
+                  onSubmit={onSubmit}
+                  onFileUpload={handleFileUpload}
+                  onStopGeneration={stopGeneration}
+                  isGenerating={isGenerating}
+                  isLoading={isLoading}
+                  loadingText="Generating..."
+                  value={inputValue}
+                />
+              </div>
+
+              <div className="flex flex-wrap justify-center text-gray-300 gap-2 mt-4 text-xs sm:text-sm">
+                {buttonLabels.map((label) => (
+                  <ButtonsCard
+                    key={label}
+                    label={label}
+                    onClick={() => handleButtonClick(label)}
                   />
-                </div>
-                <div className="flex flex-wrap justify-center text-gray-300 gap-2 xs:gap-4 mt-4 xs:text-xs sm:text-xs md:text-sm lg:text-sm">
-                  {buttonLabels.map((label) => (
-                    <ButtonsCard
-                      key={label}
-                      label={label}
-                      onClick={() => handleButtonClick(label)}
-                    />
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </main>
-      <footer className="text-[#757185] text-center py-4 mt-auto">
-  Built with ❤️ by Cryenx AI
-</footer>
-    </div>
+      </div>
+    </main>
+    <footer className="text-[#757185] text-center py-4 mt-auto text-sm">
+      Built with ❤️ by Cryenx AI
+    </footer>
+  </div>
   );
 }

@@ -1,4 +1,4 @@
-// File: D:\Rebranding\AI-Services-Page\Lexora.ai\app\api\chat\route.ts
+// File: D:\Rebranding\AI-Services-Page\Cryenx-Assistant\app\api\chat\route.ts
 import * as entry from '../../../../../app/api/chat/route.js'
 import type { NextRequest } from 'next/server.js'
 

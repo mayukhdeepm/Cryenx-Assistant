@@ -1,4 +1,4 @@
-// File: D:\Rebranding\AI-Services-Page\Lexora.ai\app\layout.tsx
+// File: D:\Rebranding\AI-Services-Page\Cryenx-Assistant\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
