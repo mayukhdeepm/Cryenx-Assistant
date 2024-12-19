@@ -14,7 +14,7 @@ const generationConfig = {
   temperature: 1,
   topP: 0.95,
   topK: 40,
-  maxOutputTokens: 1000,
+  maxOutputTokens: 8000,
 };
 
 export async function POST(req: Request) {
