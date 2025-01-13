@@ -375,9 +375,9 @@ export default function Home() {
         </div>
       </div>
     </main>
-    <footer className="text-[#757185] text-center py-4 mt-auto text-sm">
+    {/* <footer className="text-[#757185] text-center py-4 mt-auto text-sm">
       Built with ❤️ by Cryenx AI
-    </footer>
+    </footer> */}
   </div>
   );
 }
